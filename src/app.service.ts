@@ -1,14 +1,31 @@
-import { Injectable } from '@nestjs/common'
+import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class AppService {
-  getEmoji() {
-    const emojis = this.getEmojis()
-    const randomIndex = Math.floor(Math.random() * emojis.length)
-    return emojis[randomIndex]
+  getEmoji(index?: number) {
+    const emojis = this.getEmojis();
+    const emojiIndex = index
+      ? index
+      : Math.floor(Math.random() * emojis.length);
+    return emojis[emojiIndex];
   }
 
   getEmojis() {
-    return [`🚀`, `🔥`, `👍`, `🙌`, `👋`, `👏`, `🎉`, `🤩`, `🥳`, `🤘`, `🤙`, `👌`, `👊`, `👀`]
+    return [
+      `🚀`,
+      `🔥`,
+      `👍`,
+      `🙌`,
+      `👋`,
+      `👏`,
+      `🎉`,
+      `🤩`,
+      `🥳`,
+      `🤘`,
+      `🤙`,
+      `👌`,
+      `👊`,
+      `👀`,
+    ];
   }
 }
